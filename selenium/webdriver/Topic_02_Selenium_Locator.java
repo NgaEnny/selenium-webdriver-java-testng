@@ -61,8 +61,8 @@ public class Topic_02_Selenium_Locator {
 //        driver.findElement(By.cssSelector("")).click();
 //        driver.findElement(By.cssSelector("")).getText()
 //
-//        driver.findElement(By.id("FirstName"));
-//        Thread.sleep(3000);
+        driver.findElement(By.id("Password")).sendKeys("Nga Ung");
+        Thread.sleep(3000);
 
     }
 
@@ -113,8 +113,8 @@ public class Topic_02_Selenium_Locator {
     }
     @Test
     public void TC_07_Css() {
-//        driver.findElement(By.cssSelector("input#Company"));
-//        driver.findElement(By.cssSelector("#Company"));
+        driver.findElement(By.cssSelector("input#Company"));
+        driver.findElement(By.cssSelector("#Company"));
         driver.findElement(By.cssSelector("input[id=Company]"));
 
         driver.findElement(By.cssSelector("button.register-next-step-button"));
@@ -140,7 +140,7 @@ public class Topic_02_Selenium_Locator {
         //
         driver.findElement(By.xpath("//input[@id='small-searchterms']"));
         driver.findElement(By.xpath("//input[@id='Password']"));
-//        driver.findElement(By.xpath("//input[@id='Company']"));
+        driver.findElement(By.xpath("//input[@id='Company']"));
 
         driver.findElement(By.xpath("//button[@class='button-1 register-next-step-button']"));
         driver.findElement(By.xpath("//button[contains(@class, 'register-next-step-button')]"));
