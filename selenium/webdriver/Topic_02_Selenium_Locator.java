@@ -60,9 +60,9 @@ public class Topic_02_Selenium_Locator {
 //        //Tìm nhiều element giống nhau
 //        driver.findElement(By.cssSelector("")).click();
 //        driver.findElement(By.cssSelector("")).getText()
-
-        driver.findElement(By.id("FirstName"));
-        Thread.sleep(3000);
+//
+//        driver.findElement(By.id("FirstName"));
+//        Thread.sleep(3000);
 
     }
 
@@ -76,8 +76,8 @@ public class Topic_02_Selenium_Locator {
     @Test
     public void TC_03_Name() {
 //        driver.findElement(By.name("DateOfBirthDay"));
-        driver.findElement(By.name("DateOfBirthMonth"));
-        driver.findElement(By.name("DateOfBirthYear"));
+//        driver.findElement(By.name("DateOfBirthMonth"));
+//        driver.findElement(By.name("DateOfBirthYear"));
     }
 
     @Test
@@ -113,17 +113,16 @@ public class Topic_02_Selenium_Locator {
     }
     @Test
     public void TC_07_Css() {
-        //
-        driver.findElement(By.cssSelector("input#Company"));
-        driver.findElement(By.cssSelector("#Company"));
+//        driver.findElement(By.cssSelector("input#Company"));
+//        driver.findElement(By.cssSelector("#Company"));
         driver.findElement(By.cssSelector("input[id=Company]"));
 
         driver.findElement(By.cssSelector("button.register-next-step-button"));
         driver.findElement(By.cssSelector("button[class='button-1 register-next-step-button']"));
 
-        driver.findElement(By.cssSelector("select[name='DateOfBirthDay']"));
-        driver.findElement(By.cssSelector("select[name='DateOfBirthMonth']"));
-        driver.findElement(By.cssSelector("select[name='DateOfBirthYear']"));
+//        driver.findElement(By.cssSelector("select[name='DateOfBirthDay']"));
+//        driver.findElement(By.cssSelector("select[name='DateOfBirthMonth']"));
+//        driver.findElement(By.cssSelector("select[name='DateOfBirthYear']"));
 
         driver.findElement(By.cssSelector("a[href*='/register?returnUrl=%2Fregister']"));
         driver.findElement(By.cssSelector("a[href*='/login?returnUrl=%2Fregister']"));
@@ -141,22 +140,22 @@ public class Topic_02_Selenium_Locator {
         //
         driver.findElement(By.xpath("//input[@id='small-searchterms']"));
         driver.findElement(By.xpath("//input[@id='Password']"));
-        driver.findElement(By.xpath("//input[@id='Company']"));
+//        driver.findElement(By.xpath("//input[@id='Company']"));
 
-        driver.findElement(By.xpath("//button[@class='button-1 register-next-step-button"));
-        driver.findElement(By.xpath("//button[contains(@class, 'register-next-step-button"));
+        driver.findElement(By.xpath("//button[@class='button-1 register-next-step-button']"));
+        driver.findElement(By.xpath("//button[contains(@class, 'register-next-step-button')]"));
 
-        driver.findElement(By.xpath("//select[@name='DateOfBirthDay']"));
-        driver.findElement(By.xpath("//select[@name='DateOfBirthMonth']"));
-        driver.findElement(By.xpath("//select[@name='DateOfBirthYear']"));
+//        driver.findElement(By.xpath("//select[@name='DateOfBirthDay']"));
+//        driver.findElement(By.xpath("//select[@name='DateOfBirthMonth']"));
+//        driver.findElement(By.xpath("//select[@name='DateOfBirthYear']"));
 
         driver.findElement(By.xpath("//a[text()='Register']"));
         driver.findElement(By.xpath("//a[text()='Log in']"));
         driver.findElement(By.xpath("//a[text()='Shipping & returns']"));
 
-        driver.findElement(By.xpath("//a[contains(text(), 'Register"));
-        driver.findElement(By.xpath("//a[contains(text(), 'Shipping"));
-        driver.findElement(By.xpath("//a[contains(text(), '& return"));
+        driver.findElement(By.xpath("//a[contains(text(), 'Register')]"));
+        driver.findElement(By.xpath("//a[contains(text(), 'Shipping')]"));
+        driver.findElement(By.xpath("//a[contains(text(), '& return')]"));
 
         driver.findElement(By.xpath("//a"));
         driver.findElement(By.xpath("//button"));
