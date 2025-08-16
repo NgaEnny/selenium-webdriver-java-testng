@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.locators.RelativeLocator;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -162,6 +163,46 @@ public class Topic_02_Selenium_Locator {
         driver.findElement(By.xpath("//input"));
 
     }
+
+    @Test
+    public void TC_09_Relative_Locator() {
+        // Element/ By A
+        By passwordTextboxBy = By.cssSelector("input#Password");
+        WebElement passwordTextbox = driver.findElement(By.cssSelector("input#Password"));
+
+        // Element/ By B
+        By rememberMeCheckboxBy = By.id("RememberMe");
+
+        // Element/ By C
+        By forgotPasswordLinkBy = By.cssSelector("span.forgot-password");
+
+
+        // Element/ By D
+        By loginButtonBy = By.cssSelector("button.login-button");
+
+
+        // Element/ By E
+        WebElement rememberMeLabelText = driver.findElement(RelativeLocator.with(By.tagName("label"))
+                .above(loginButtonBy) // Label nằm trên login button
+                .below(passwordTextbox) // nằm dưới password
+                .toRightOf(rememberMeCheckboxBy) //nằm phải so với RememberMe checkbox
+                .toLeftOf(forgotPasswordLinkBy)); // label nằm bên trái so với Forgot Password link
+        // 1 - Khi ko thể định danh được element của chính nó (dựa vào vị trí bên cạnh/ gần đó) => hầu như ko dùng
+        // 2 - Sử dụng để test GUI (giao diện - position có khớp với Design)
+
+        //Search textbox
+//        driver.findElement(By.xpath("//input[@id='email']"));
+
+        // 1- Duy nhất
+        // 2- Ưu tiên nếu có id / class/ name thì dùng trước
+
+        // 3 - ko có id/ class/ name thì dùng bất kì loại khác
+
+        // 4 - giá trị của attribute phải có ý nghĩa - liên quan tới cái element đó
+
+        // => tối ưu nhất để dùng
+    }
+
 
     // 3- Clean: delete data test/ account/ closed browser/ ...
     @AfterClass
