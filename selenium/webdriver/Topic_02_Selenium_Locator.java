@@ -22,7 +22,7 @@ public class Topic_02_Selenium_Locator {
     public void beforeClass() {
         driver = new FirefoxDriver();
 
-        driver.get("https://demo.nopcommerce.com/login");
+        driver.get("https://demo.nopcommerce.com/register");
     }
 
     // 2- Action/ Excute: Tương tác lên element nào/ nhập liệu/ verify/ ...
@@ -62,17 +62,28 @@ public class Topic_02_Selenium_Locator {
 //        driver.findElement(By.cssSelector("")).click();
 //        driver.findElement(By.cssSelector("")).getText()
 //
-        driver.findElement(By.id("Password")).sendKeys("Nga Ung");
-        Thread.sleep(3000);
+        driver.findElement(By.id("small-searchterms"));
+        driver.findElement(By.id("FirstName"));
 
     }
 
     @Test
-    public void TC_02_Class() throws InterruptedException {
-        // Nó ko lấy hết toàn bọ giá trị (nếu có khoảng trắng)
-        driver.findElement(By.className("register-button")).click();
-        Thread.sleep(3000);
+    public void TC_02_Class() {
+        // Giá trị trong class mà không có khoảng trắng (lấy toàn bộ)
+        // Giá trị có khoảng trắng (lấy phần nào là duy nhất)
+
+        driver.findElement(By.className("search-box-text"));
+        driver.findElement(By.className("button-1"));
+        driver.findElement(By.className("register-next-step-button"));
+        driver.findElement(By.className("ico-register"));
+        driver.findElement(By.className("ico-login"));
+        driver.findElement(By.className("top-menu"));
+        driver.findElement(By.className("ui-widget"));
+        driver.findElement(By.className("ui-widget-content"));
+        driver.findElement(By.className("ui-autocomplete"));
+        driver.findElement(By.className("ui-autocomplete-input"));
     }
+
 
     @Test
     public void TC_03_Name() {
@@ -87,6 +98,7 @@ public class Topic_02_Selenium_Locator {
         // Thẻ a và có thuộc tính href
         driver.findElement(By.linkText("Register"));
         driver.findElement(By.linkText("Log in"));
+        driver.findElement(By.linkText("WishList"));
     }
 
     @Test
