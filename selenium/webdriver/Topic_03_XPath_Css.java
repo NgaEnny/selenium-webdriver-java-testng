@@ -50,21 +50,23 @@ public class Topic_03_XPath_Css {
 
         // Assert
         Assert.assertEquals(driver.findElement(By.id("txtEmail-error")).getText(), "Vui lòng nhập email hợp lệ");
-        Assert.assertEquals(driver.findElement(By.id("txtEmail-error")).getText(), "Vui lòng nhập email hợp lệ");
+        Assert.assertEquals(driver.findElement(By.id("txtCEmail-error")).getText(), "Vui lòng nhập email hợp lệ");
     }
 
     @Test
     public void Register_03_Incorrect_Confirm_Email() {
-        // Arrange
         driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 
-        // Action
-        driver.findElement(By.id("txtEmail")).sendKeys("bichnga@gmail.com");
-        driver.findElement(By.id("txtCEmail")).sendKeys("bichnga123@gmail.com");
+        driver.findElement(By.id("txtFirstname")).sendKeys("Joe Biden");
+        driver.findElement(By.id("txtEmail")).sendKeys("john@biden.us");
+        driver.findElement(By.id("txtCEmail")).sendKeys("john@biden.vn");
+
         driver.findElement(By.xpath("//button[@type='submit']")).click();
 
-        // Assert
-        Assert.assertEquals(driver.findElement(By.id("txtCEmail-error")).getText(), "Email nhập lại không đúng");
+        Assert.assertEquals(
+                driver.findElement(By.id("txtCEmail-error")).getText(),
+                "Email nhập lại không đúng"
+        );
     }
 
     @Test
@@ -81,30 +83,59 @@ public class Topic_03_XPath_Css {
     }
 
     @Test
-    public void Register_05_Invalid_Confirm_Password() {
-        // Arrange
+    public void Register_05_Incorrect_Confirm_Password() {
         driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 
-        // Action
+        driver.findElement(By.id("txtFirstname")).sendKeys("Joe Biden");
+        driver.findElement(By.id("txtEmail")).sendKeys("john@biden.us");
+        driver.findElement(By.id("txtCEmail")).sendKeys("john@biden.us");
+
         driver.findElement(By.id("txtPassword")).sendKeys("123456");
-        driver.findElement(By.id("txtCPassword")).sendKeys("123457");
+        driver.findElement(By.id("txtCPassword")).sendKeys("654321");
+
         driver.findElement(By.xpath("//button[@type='submit']")).click();
 
-        // Assert
-        Assert.assertEquals(driver.findElement(By.id("txtCPassword-error")).getText(), "Mật khẩu bạn nhập không khớp");
+        Assert.assertEquals(
+                driver.findElement(By.id("txtCPassword-error")).getText(),
+                "Mật khẩu bạn nhập không khớp"
+        );
     }
 
     @Test
     public void Register_06_Invalid_Phone_Number() {
-        // Arrange
         driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 
-        // Action
-        driver.findElement(By.id("txtPhone")).sendKeys("034234");
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        driver.findElement(By.id("txtFirstname")).sendKeys("Joe Biden");
+        driver.findElement(By.id("txtEmail")).sendKeys("john@biden.us");
+        driver.findElement(By.id("txtCEmail")).sendKeys("john@biden.us");
+        driver.findElement(By.id("txtPassword")).sendKeys("123456");
+        driver.findElement(By.id("txtCPassword")).sendKeys("654321");
 
-        // Assert
-        Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(), "Số điện thoại phải từ 10-11 số.");
+        // < 10 numbers
+        driver.findElement(By.id("txtPhone")).sendKeys("098765432");
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        Assert.assertEquals(
+                driver.findElement(By.id("txtPhone-error")).getText(),
+                "Số điện thoại phải từ 10-11 số."
+        );
+
+        // > 11 numbers
+        driver.findElement(By.id("txtPhone")).clear();
+        driver.findElement(By.id("txtPhone")).sendKeys("0987654321456");
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        Assert.assertEquals(
+                driver.findElement(By.id("txtPhone-error")).getText(),
+                "Số điện thoại phải từ 10-11 số."
+        );
+
+        // Start with invalid prefix (not 09/03/012/016/018/019/088/03/05 per UI)
+        driver.findElement(By.id("txtPhone")).clear();
+        driver.findElement(By.id("txtPhone")).sendKeys("7654321456");
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        Assert.assertEquals(
+                driver.findElement(By.id("txtPhone-error")).getText(),
+                "Số điện thoại bắt đầu bằng: 09 - 03 - 012 - 016 - 018 - 019 - 088 - 03 - 05 - 07 - 08"
+        );
     }
 
     // 3- Clean: delete data test/ account/ closed browser/ ...
