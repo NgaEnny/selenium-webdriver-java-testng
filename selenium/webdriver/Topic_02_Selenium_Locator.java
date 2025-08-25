@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.locators.RelativeLocator;
+//import org.openqa.selenium.support.locators.RelativeLocator;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -194,11 +194,11 @@ public class Topic_02_Selenium_Locator {
 
 
         // Element/ By E
-        WebElement rememberMeLabelText = driver.findElement(RelativeLocator.with(By.tagName("label"))
-                .above(loginButtonBy) // Label nằm trên login button
-                .below(passwordTextbox) // nằm dưới password
-                .toRightOf(rememberMeCheckboxBy) //nằm phải so với RememberMe checkbox
-                .toLeftOf(forgotPasswordLinkBy)); // label nằm bên trái so với Forgot Password link
+        //WebElement rememberMeLabelText = driver.findElement(RelativeLocator.with(By.tagName("label"))
+                //.above(loginButtonBy) // Label nằm trên login button
+                //.below(passwordTextbox) // nằm dưới password
+                //.toRightOf(rememberMeCheckboxBy) //nằm phải so với RememberMe checkbox
+                //.toLeftOf(forgotPasswordLinkBy)); // label nằm bên trái so với Forgot Password link
         // 1 - Khi ko thể định danh được element của chính nó (dựa vào vị trí bên cạnh/ gần đó) => hầu như ko dùng
         // 2 - Sử dụng để test GUI (giao diện - position có khớp với Design)
 

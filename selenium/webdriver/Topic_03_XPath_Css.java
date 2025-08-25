@@ -19,7 +19,7 @@ public class Topic_03_XPath_Css {
     public void beforeClass() {
         driver = new FirefoxDriver();
         driver.get("https://live.techpanda.org");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     // 2- Action/ Excute: Tương tác lên element nào/ nhập liệu/ verify/ ...
