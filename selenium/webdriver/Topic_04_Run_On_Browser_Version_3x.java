@@ -35,6 +35,7 @@ public class Topic_04_Run_On_Browser_Version_3x {
         driver = new ChromeDriver();
 
         driver.get("https://demo.nopcommerce.com/");
+        driver.quit();
     }
 
     @Test
@@ -43,6 +44,7 @@ public class Topic_04_Run_On_Browser_Version_3x {
         driver = new EdgeDriver();
 
         driver.get("https://demo.nopcommerce.com/");
+        driver.quit();
     }
 }
 
