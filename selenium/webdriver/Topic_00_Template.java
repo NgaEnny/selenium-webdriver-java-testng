@@ -13,6 +13,7 @@ public class Topic_00_Template {
     // 1- Setup: OS/  Browser/ Web/ Page/ Data/ Variable/ Object/..
     WebDriver driver;
 
+
     @BeforeClass
     public void beforeClass() {
         driver = new FirefoxDriver();
