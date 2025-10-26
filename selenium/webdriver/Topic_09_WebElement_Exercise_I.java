@@ -315,6 +315,53 @@ public class Topic_09_WebElement_Exercise_I {
         Assert.assertFalse(driver.findElement(By.xpath("//li[@class='8-char completed']")).isDisplayed());
         Assert.assertFalse(driver.findElement(By.cssSelector("li.username-check.completed")).isDisplayed());
     }
+
+    @Test
+    public void TC_02_Demos_Checkbox() throws InterruptedException {
+        driver.get("https://demos.telerik.com/kendo-ui/checkbox/index");
+        Thread.sleep(3000);
+
+        // chọn
+        WebElement label = driver.findElement(By.xpath("//label[normalize-space(text())='Dual-zone air conditioning']"));
+        WebElement checkbox = driver.findElement(By.id("eq5"));
+        // Click
+        label.click();
+
+        // Verify both select and de-select (toggle check)
+        System.out.println(checkbox.isSelected());
+
+        if (checkbox.isSelected()) {
+            System.out.println("Dual-zone air is selected");
+            checkbox.click();
+        } else {
+            System.out.println("Dual-zone air is de-selected");
+        }
+        // Bỏ chọn
+        if (checkbox.isSelected()) {
+            checkbox.click();
+        }
+
+        if (!checkbox.isSelected()){
+            System.out.println("Dual-zone air is de-selected");
+        } else {
+            System.out.println("Dual-zone air is selected");
+        }
+
+    }
+
+    @Test
+    public void TC_02a_Demos_Radio() {
+        driver.get("https://demos.telerik.com/kendo-ui/radiobutton/index");
+
+        WebElement Petro_2 = driver.findElement(By.cssSelector("input#engine7.k-radio.k-radio-md"));
+        Petro_2.click();
+        if (Petro_2.isSelected()) {
+            System.out.println("Petro 2.0. 125kW is selected");
+        } else {
+            System.out.println("Petro 2.0. 125kW is de-selected");
+        }
+    }
+
     // 3- Clean: delete data test/ account/ closed browser/ ...
     @AfterClass
     public void cleanBrowser() {
