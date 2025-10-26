@@ -20,8 +20,7 @@ public class Topic_00_Template {
     @BeforeClass
     public void beforeClass() {
         driver = new FirefoxDriver();
-        explicitWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 
